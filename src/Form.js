@@ -10,7 +10,8 @@ export class Form1 extends React.Component {
       firstName: '',
       lastName: '',
       Pass: '',
-      gender: ''
+      gender: '',
+      email: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,13 +19,15 @@ export class Form1 extends React.Component {
   }
 
   handleChange(event) {
+    event.preventDefault()
     this.setState({[event.target.name]: event.target.value});  
+    console.log(event.target.name)
+    console.log(event.target.value)
   }
 
   handleSubmit(event) {
-    alert('name is: ' + this.state.denotion +' '+ this.state.firstName + ' ' + this.state.lastName);
-    
-    alert('gender is: ' + this.state.gender);
+    //alert('name is: ' + this.state.denotion +' '+ this.state.firstName + ' ' + this.state.lastName);
+    //alert('gender is: ' + this.state.gender);
 
     console.log(this.state);
     this.setState({
@@ -32,12 +35,18 @@ export class Form1 extends React.Component {
       firstName: '',
       lastName: '',
       Pass: '',
-      gender: ''
+      gender: '',
+      email: '',
     });
-    event.preventDefault();
+    event.preventDefault()
   }
 
   render() {
+    const {denotion} = this.state
+    const {firstName} = this.state
+    const {lastName} = this.state
+    const {email} = this.state
+    const {gender} = this.state
     return (
       <div class="container">
       <form onSubmit={this.handleSubmit} class="border border-light p-5">
@@ -62,6 +71,14 @@ export class Form1 extends React.Component {
         value={this.state.lastName} 
         onChange={this.handleChange} 
         placeholder="enter your last name"/>
+        Email: 
+        <input 
+        name="email"
+        type="email" 
+        value={this.state.email} 
+        onChange={this.handleChange} 
+        placeholder="enter your Email"/>
+        
         Password:
         <input
         name="Pass"
@@ -87,6 +104,9 @@ export class Form1 extends React.Component {
         <div className="submit">
         <input className="mr-2" type="submit" value="Submit"/>
         </div>
+    <p>Name is : {denotion} {firstName} {lastName}</p>
+    <p>Email : {email}</p>
+    <p>Gender is : {gender}</p>
 
         
       </form>

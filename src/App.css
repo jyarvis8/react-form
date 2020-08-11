@@ -25,6 +25,18 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
+input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+
 .container h1 {
   text-align: center;
   margin-bottom: 67px;
